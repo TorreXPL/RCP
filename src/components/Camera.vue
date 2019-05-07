@@ -16,7 +16,7 @@
             </div>
                 <div id="selekcik">
                 <div class="figure">
-                    <img :src="img" width="100%" height="100%" class="ui fluid image">
+                    <img :src="img" id="file" width="100%" height="100%" class="ui fluid image">
 
                 </div>
                 </div>
@@ -64,7 +64,7 @@
                 if (!event.target.files) return;
 
                 var load = new FormData();
-                load.append(this.img, event.target.files[0]);
+                load.append("file", this.img);
                 axios
                     .post(process.env.VUE_APP_WEBSERVICE_URL + "/check", load)
                     .then(response => {
