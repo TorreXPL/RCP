@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     updateWeather() {
-      let url = `http://api.openweathermap.org/data/2.5/weather?lat=${
+      let url = `https://api.openweathermap.org/data/2.5/weather?lat=${
         this.coords.latitude
       }&lon=${this.coords.longitude}&appid=${
         process.env.VUE_APP_WEATHER_API_KEY
