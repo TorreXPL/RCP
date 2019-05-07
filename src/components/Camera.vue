@@ -11,7 +11,7 @@
                              @stopped="onStopped"
                              @error="onError"
                              @cameras="onCameras"/>
-                <button class="ui blue button" @click="onCapture">
+                <button class="ui blue button" @click="uploadFoto">
                     Zrób zdjęcie</button>
             </div>
                 <div id="selekcik">
@@ -26,7 +26,7 @@
 
 <script>
     import { WebCam } from "vue-web-cam";
-
+    import axios from "axios";
     export default {
         name: "App",
         components: {
@@ -59,6 +59,29 @@
             }
         },
         methods: {
+            uploadFoto: function(event) {
+                this.img= this.$refs.webcam.capture();
+                if (!event.target.files) return;
+
+                var load = new FormData();
+                load.append(this.img, event.target.files[0]);
+                axios
+                    .post(process.env.VUE_APP_WEBSERVICE_URL + "/check", load)
+                    .then(response => {
+                        let destiledData = response.data;
+
+                        if (!destiledData._id || destiledData._id == "undefined") {
+                            return this.$router.push("/error");
+                        }
+                        return this.$router.push({
+                            name: `ActionPage`,
+                            params: { name: destiledData.name, id: destiledData._id }
+                        });
+                    })
+                    .catch(error => {
+                        console.log(error);
+                    });
+            },
             onCapture() {
                 this.img = this.$refs.webcam.capture();
             },

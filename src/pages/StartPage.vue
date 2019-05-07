@@ -5,7 +5,7 @@
     <Clock/>
     <router-link tag="button" class="ui massive primary button" id="btn" to="/action">START</router-link>
     <br/>
-      <input type="file" id="file" @change="uploadFoto" >
+      <input type="file" id="file" @change="uploadFoto" style="display:none;">
 
   </div>
 </template>
