@@ -1,9 +1,8 @@
 <template>
 
   <div>
-  <Camera/>
     <Clock/>
-    <router-link tag="button" class="ui massive primary button" id="btn" to="/action">START</router-link>
+    <router-link tag="button" class="ui massive primary button" id="btn" to="/webcam">START</router-link>
     <br/>
       <input type="file" id="file" @change="uploadFoto" style="display:none;">
 
@@ -13,7 +12,6 @@
 <script>
   import Clock from "../components/Clock";
 import axios from "axios";
-  import Camera from "../components/Camera";
 
 export default {
   methods: {
@@ -42,8 +40,7 @@ export default {
   },
 
   components: {
-    Clock,
-      Camera
+    Clock
   }
 
 };

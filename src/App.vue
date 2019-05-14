@@ -1,16 +1,19 @@
 ﻿<template>
   <div id="app" class="ui container center aligned">
+    <router-view  v-if="$router.history.current['path'] =='/webcam'"></router-view>
+    <div v-if="$router.history.current['path'] !=='/webcam'">
     <Logo/>
     <PageHeader :header="this.header" :subheader="this.subheader"/>
     <Weather/>
     <div class="background">
       <router-view></router-view>
     </div>
+    </div>
   </div>
 </template>
 
 <script>
-import Logo from "./components/Logo";
+  import Logo from "./components/Logo";
 import Weather from "./components/Weather";
 import PageHeader from "./components/PageHeader";
 import "../public/css/custom.css";
@@ -43,6 +46,8 @@ export default {
           return "Miłego dnia w pracy :)";
         case "/action":
           return `Cześć ${this.$route.params.name}!`;
+        case "/webcam":
+          return ``;
         default:
           return "Twoja ścieżka jest inwalidą";
       }
@@ -58,6 +63,8 @@ export default {
           return `Powrót do ekranu startowego za ${this.timeleft}s`;
         case "/action":
           return "Co robisz?";
+        case "/webcam":
+          return "";
         default:
           return ":c :c :c :c";
       }

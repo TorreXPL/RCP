@@ -3,6 +3,7 @@ import Router from "vue-router";
 import ActionPage from "./pages/ActionPage.vue";
 import ErrorPage from "./pages/ErrorPage.vue";
 import StartPage from "./pages/StartPage.vue";
+import WebCamPage from "./pages/WebCamPage";
 import SuccessfulActionPage from "./pages/SuccessfulActionPage.vue";
 Vue.use(Router);
 
@@ -30,6 +31,11 @@ export default new Router({
       path: "/error",
       name: "ErrorPage",
       component: ErrorPage
+    },
+    {
+      path: "/webcam",
+      name: "WebCamPage",
+      component: WebCamPage
     }
 
   ]
