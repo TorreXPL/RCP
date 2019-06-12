@@ -2,6 +2,8 @@
 
 * {
   font-family: "Montserrat", serif;
+  /* TODO: tmp solution to bad css */
+  overflow:hidden;
 }
 html {
   height: 100%;

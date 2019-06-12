@@ -1,19 +1,19 @@
 ﻿<template>
   <div id="app" class="ui container center aligned">
-    <router-view  v-if="$router.history.current['path'] =='/webcam'"></router-view>
+    <router-view v-if="$router.history.current['path'] =='/webcam'"></router-view>
     <div v-if="$router.history.current['path'] !=='/webcam'">
-    <Logo/>
-    <PageHeader :header="this.header" :subheader="this.subheader"/>
-    <Weather/>
-    <div class="background">
-      <router-view></router-view>
-    </div>
+      <Logo/>
+      <PageHeader :header="this.header" :subheader="this.subheader"/>
+      <Weather/>
+      <div class="background">
+        <router-view></router-view>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import Logo from "./components/Logo";
+import Logo from "./components/Logo";
 import Weather from "./components/Weather";
 import PageHeader from "./components/PageHeader";
 import "../public/css/custom.css";
@@ -26,14 +26,9 @@ export default {
   name: "app",
   data: () => {
     return {
-      fact: "",
+      fact: "Gdy ośmiornica głoduje to może zjęść własną mackę",
       timeleft: Math.round(settings.return_timeout / 1000)
     };
-  },
-  created: function() {
-    this.displayFunFact().then(fact => {
-      this.fact = fact;
-    });
   },
   computed: {
     header() {
@@ -68,21 +63,6 @@ export default {
         default:
           return ":c :c :c :c";
       }
-    }
-  },
-  methods: {
-    displayFunFact(callback) {
-      let url = `https://my.api.mockaroo.com/fun_fact.json?key=${
-        process.env.VUE_APP_MOCKAROO_API_KEY
-      }`;
-      return axios
-        .get(url)
-        .then(data => {
-          return data.data.fact;
-        })
-        .catch(error => {
-          console.log(error);
-        });
     }
   },
   components: {

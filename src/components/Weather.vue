@@ -1,5 +1,5 @@
 <template>
-  <div class="weather-container">
+  <div class="weather-container" v-show="this.tmp">
     <fa-icon class="weather-icon" :icon="icon" size="2x"></fa-icon>
     <div class="weather-temperature">{{this.tmp+this.symbol}}</div>
   </div>

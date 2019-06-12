@@ -19,7 +19,7 @@
         @click="markRCP($event)"
         value="FromBreak"
         class="ui massive violet button"
-      >Wychodze na przerwę</button>
+      >Wracam z przerwy</button>
       <button
         @click="markRCP($event)"
         value="FromDelegation"
@@ -30,19 +30,17 @@
 </template>
 
 <script>
-import axios from "axios";
+import { Api } from "../main";
 
 export default {
   methods: {
     markRCP: function(event) {
       let id = this.$route.params.id;
-      axios
-        .post(
-          process.env.VUE_APP_WEBSERVICE_URL +
-            `/rcp?time_stamp=${new Date().getTime()}&employee_id=${id}&action=${
-              event.target.value
-            }`
-        )
+      Api.post(
+        `/rcp?time_stamp=${new Date().getTime()}&employee_id=${id}&action=${
+          event.target.value
+        }`
+      )
         .then(responce => {
           if (responce.status == "200") {
             this.$router.push({ name: "SuccessPage" });
@@ -52,11 +50,12 @@ export default {
         })
         .catch(error => {
           console.log(error);
+          alert(error.message);
         });
     }
   }
 };
 </script>
 
-<style lang="scss" >
+<style>
 </style>
