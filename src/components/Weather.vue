@@ -102,18 +102,13 @@ export default {
   font-size: 3rem;
   line-height: normal;
   text-align: center;
-
-  color: #f4622f;
+  color: var(--main-theme-color);
 }
 .weather-temperature {
-  /* Temp */
-
-  font-style: normal;
   font-weight: bold;
-  font-size: 18px;
-  line-height: normal;
+  font-size: 1.5rem;
   text-align: center;
   margin-top: 0.5rem;
-  color: #878887;
+  color: var(--gray);
 }
 </style>

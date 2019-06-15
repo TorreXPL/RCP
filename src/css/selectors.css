@@ -1,0 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
+
+* {
+  font-family: "Montserrat", serif;
+  overflow: hidden;
+  --main-theme-color: #f4622f;
+  --action-color: rgba(118, 182, 241, 0.75);
+  --darker-action-color: #43a1f7;
+  --gray: #878887;
+}
+html {
+  height: 100%;
+  width: 100%;
+}
+
+button {
+  width: 15rem;
+  height: 6rem;
+  background-color: var(--darker-action-color);
+  border-radius: 15px;
+  font-weight: bold;
+  box-shadow: none;
+  border:none;
+  cursor: pointer;
+  color:white;
+  font-size: 1.75rem;
+}

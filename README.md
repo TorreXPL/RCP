@@ -1,4 +1,4 @@
-# rcp_pwa
+# RCP
 
 ## Project setup
 ```

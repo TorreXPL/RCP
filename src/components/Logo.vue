@@ -21,12 +21,12 @@ export default {};
   font-size: 2rem;
 }
 #R {
-  color: #f4622f;
+  color: var(--main-theme-color);
 }
 #C {
-  color: #43a1f7;
+  color: var(--darker-action-color);
 }
 #P {
-  color: #878887;
+  color: var(--gray);
 }
 </style>
